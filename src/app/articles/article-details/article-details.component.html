@@ -1,0 +1,33 @@
+<section class="blog-detail mtb-40">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div *ngIf="article" class="blog-left">
+          <h1>{{ article.title }}</h1>
+          <button (click)="deleteArt()" class="btn btn-outline-danger">
+            Delete
+          </button>
+          <button (click)="openEditModal()" class="btn btn-outline-dark">
+            Edit
+          </button>
+          <div class="posted-on">
+            <p>
+              by <span>{{ article.author }}</span> updated on
+              <span>{{ article.updatedAt?.slice(0, 10) }}</span>
+            </p>
+          </div>
+          <div class="detail-img">
+            <img [src]="article.imageUrl" alt="blog1" />
+          </div>
+          <div class="blog-desc">
+            {{ article.description }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <app-featured-articles></app-featured-articles>
+        <app-categories></app-categories>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+<section class="Singup-wrap mtb-40">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="login-box">
+          <h1 class="mb-4">User Registration</h1>
+          <div class="alert alert-success" *ngIf="datasaved">
+            {{ message }}
+          </div>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group form-row my-3">
+              <label class="col-md-3"
+                >Name : <span class="required">*</span></label
+              >
+              <div class="col-md-9">
+                <input
+                  type="text"
+                  name="name"
+                  formControlName="name"
+                  class="form-control"
+                  placeholder="Name"
+                  required=""
+                />
+                <div
+                  class="text text-danger"
+                  *ngIf="!username?.valid && username?.touched"
+                >
+                  Please enter Your Name !!!
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group form-row my-3">
+              <label class="col-md-3"
+                >Email ID <span class="required">*</span></label
+              >
+              <div class="col-md-9">
+                <input
+                  type="email"
+                  name="email"
+                  formControlName="email"
+                  class="form-control"
+                  placeholder="Email Id"
+                  required=""
+                />
+                <div
+                  class="text text-danger"
+                  *ngIf="!email?.valid && email?.touched"
+                >
+                  Please enter Email !!!
+                </div>
+              </div>
+            </div>
+            <div class="my-3">
+              <label class="col-md-3"
+                >Password<span class="required">*</span></label
+              >
+              <div class="col-md-9">
+                <input
+                  type="password"
+                  name="password"
+                  formControlName="password"
+                  class="form-control"
+                  placeholder="Password"
+                  required=""
+                />
+                <div
+                  class="text text-danger"
+                  *ngIf="!password?.valid && password?.touched"
+                >
+                  Please enter Password !!!
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button
+                type="submit"
+                [disabled]="!form.valid"
+                class="btn btn-primary"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+          <div>
+            Already have an Account <a routerLink="/user/login">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

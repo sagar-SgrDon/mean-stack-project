@@ -1,0 +1,21 @@
+<div class="widget right-widget recent-post">
+  <h4 class="widget-title">Featured Posts</h4>
+  <a
+    *ngFor="let article of articles"
+    [routerLink]="['/articles/', article._id]"
+  >
+    <div class="rb-box">
+      <div class="rb-box-img">
+        <img [src]="article.imageUrl" alt="blog1" />
+      </div>
+      <div class="rb-box-desc">
+        <h5>{{ article.title }}</h5>
+        <p>
+          by
+          <span>{{ article.author }} </span>
+        </p>
+        <p>Posted On: {{ article.createdAt.slice(0, 10) }}</p>
+      </div>
+    </div>
+  </a>
+</div>

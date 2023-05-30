@@ -1,0 +1,21 @@
+<section class="featured-blog mtb-40">
+  <div class="container">
+    <div class="row">
+      <h2 class="title-heading">Latest Articles</h2>
+      <div *ngFor="let article of articles" class="col-md-4">
+        <div class="blog-box">
+          <img [src]="article.imageUrl" [alt]="article.imageUrl" />
+          <h3>{{ article.title }}</h3>
+          <p>
+            by <span>{{ article.author }}</span> updated on
+            {{ article.updatedAt.slice(0, 10) }}
+          </p>
+          <p>{{ article.description.slice(0, 50) }}.....</p>
+          <a [routerLink]="['/articles/', article._id]" class="btn btn-primary"
+            >Read more</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
