@@ -25,10 +25,6 @@ app.use((req, res, next) => {
 app.use("/users", userRoutes);
 app.use("/articles", articleroutes);
 
-mongoose
-  .connect(
-    "mongodb+srv://sagararora:CLd6sksx707ikpmc@mean-project.arphxwe.mongodb.net/mean?retryWrites=true&w=majority"
-  )
-  .then((res) => console.log("Mongo DB connected"));
+mongoose.connect("mongobdURI").then((res) => console.log("Mongo DB connected"));
 
 app.listen(8000);
